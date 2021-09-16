@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+        <entry key="..\:/Users/91900/AndroidStudioProjects/webDev-app/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/91900/AndroidStudioProjects/webDev-app/app/src/main/res/layout/activity_main2.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+=======
         <entry key="..\:/webDev-app/app/src/main/res/layout/activity_main.xml" value="0.20677083333333332" />
         <entry key="..\:/webDev-app/app/src/main/res/layout/login.xml" value="0.1" />
         <entry key="..\:/webDev-app/app/src/main/res/layout/login_page.xml" value="0.20677083333333332" />
@@ -20,5 +29,6 @@
         <option name="scale" value="0.14666666666666667" />
       </ProjectState>
     </option>
+
   </component>
 </project>
