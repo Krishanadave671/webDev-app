@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WebDev">
         <activity
+            android:name=".activity_bottomnavigation"
+            android:exported="true" />
+        <activity
             android:name=".common.Signup"
             android:exported="true" />
         <activity
