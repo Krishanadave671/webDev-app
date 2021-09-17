@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="HOME"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="QUIZ"
+        android:id="quiz"
+        android:icon="@drawable/ic_baseline_sports_esports_24"/>
+    <item android:title="PROFILE"
+        android:id="profile"
+        android:icon="@drawable/ic_baseline_person_24"/>
+</menu>
