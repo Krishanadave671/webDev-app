@@ -15,7 +15,7 @@
         android:icon="@drawable/github_login"
         android:title="PROFILE" />
     <item
-        android:id="@+id/Login_here"
+        android:id="@+id/Logout"
         android:title="LOGOUT"
         android:icon="@drawable/ic_baseline_arrow_back_24"/>
 </group>
