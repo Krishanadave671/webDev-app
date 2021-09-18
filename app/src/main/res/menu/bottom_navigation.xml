@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-<group android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/homeDrawer"
         android:title="HOME"
@@ -9,14 +8,10 @@
     <item
         android:id="@+id/followUs"
         android:title="FOLLOW US"
-        android:icon="@drawable/github_login"/>
+        android:icon="@drawable/ic_baseline_info_24"/>
     <item
         android:id="@+id/profileDrawer"
-        android:icon="@drawable/github_login"
+        android:icon="@drawable/ic_baseline_sports_esports_24"
         android:title="PROFILE" />
-    <item
-        android:id="@+id/Login_here"
-        android:title="LOGOUT"
-        android:icon="@drawable/ic_baseline_arrow_back_24"/>
-</group>
+    </group>
 </menu>

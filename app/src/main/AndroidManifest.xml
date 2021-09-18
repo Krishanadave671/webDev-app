@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WebDev">
         <activity
-            android:name=".activity_bottomnavigation"
+            android:name=".common.activity_bottomnavigation"
             android:exported="true" />
         <activity
             android:name=".common.Signup"
@@ -22,6 +22,7 @@
         <activity
             android:name=".common.MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
