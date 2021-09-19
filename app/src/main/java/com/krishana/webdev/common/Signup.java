@@ -12,18 +12,27 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.krishana.webdev.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Signup extends AppCompatActivity {
     ImageView back_btn;
     private FirebaseAuth mAuth;
-    Button Register, login;
-    TextView titletext;
+    Button  login;
+
     TextInputLayout fullname , username ,password ,email;
+    FirebaseFirestore fstore;
+    String Userid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,7 @@ public class Signup extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.Password_log);
         mAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,9 +64,10 @@ public class Signup extends AppCompatActivity {
     }
     public void registernow(View view){
         String Password = password.getEditText().getText().toString().trim();
-        String  Fullname = fullname.getEditText().toString().trim();
+        String  Fullname = fullname.getEditText().getText().toString().trim();
         String  Username = username.getEditText().getText().toString().trim();
         String Email = email.getEditText().getText().toString().trim();
+
 
 
         if (!Validatefullname() | !ValidateUsername() | !validateEmail() | !validatePassword()) {
@@ -68,6 +79,18 @@ public class Signup extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(Signup.this, "sucessfully authenticated", Toast.LENGTH_SHORT).show();
+                    Userid = mAuth.getCurrentUser().getUid();
+                    DocumentReference documentReference = fstore.collection("Users").document(Userid);
+                    Map<String , Object> user = new HashMap<>();
+                    user.put("FullName", Fullname);
+                    user.put("Username", Username);
+                    user.put("Email" , Email);
+                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Signup.this, "User profile is created", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
                 else{
                     Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -101,7 +124,7 @@ public class Signup extends AppCompatActivity {
         }
     }
     private boolean Validatefullname(){
-        String  val = fullname.getEditText().toString().trim();
+        String  val = fullname.getEditText().getText().toString().trim();
         if(val.isEmpty()){
             fullname.setError("Field cannot be empty");
             return false;
